@@ -1,0 +1,14 @@
+# Jupyter notebook checkpoints
+.ipynb_checkpoints
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+
+# data folder
+data*
+
+# experimental code for understanding
+experimental_code/
+
+# junk folder
+junk
