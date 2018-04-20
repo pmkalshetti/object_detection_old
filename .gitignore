@@ -6,7 +6,6 @@ __pycache__/
 
 # data folder
 data*
-dummy_data*
 
 # experimental code for understanding
 experimental_code/
