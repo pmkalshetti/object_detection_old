@@ -6,6 +6,7 @@ __pycache__/
 
 # data folder
 data*
+imgs_out
 
 # experimental code for understanding
 experimental_code/
