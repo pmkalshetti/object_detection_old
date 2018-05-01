@@ -5,4 +5,4 @@ YOLO v2 implementation
 The demo script and trained models can be found at http://bit.ly/2JAgGcs
 
 ## Result
-<img src="./out3.gif" width="416" height="416" />
+<img src="./out.gif" width="416" height="416" />
