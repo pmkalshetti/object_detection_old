@@ -9,6 +9,6 @@ data_VOC2012
 results*
 
 # model files
-model*
+checkpoints
 weights*
-hand_detection/model*
+hand_detection/checkpoints

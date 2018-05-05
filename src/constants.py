@@ -61,7 +61,7 @@ THRESHOLD_OUT_PROB = 0.5
 THRESHOLD_IOU_NMS = 0.5
 NUM_EPOCHS = 2
 BATCH_SIZE = 16
-CHECKPOINT_DIR = '../model'
+CHECKPOINT_DIR = '../checkpoints'
 CHECKPOINT_PREFIX = os.path.join(CHECKPOINT_DIR, "ckpt")
 
 # prediction

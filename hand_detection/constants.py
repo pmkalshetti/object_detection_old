@@ -26,7 +26,7 @@ ANCHORS *= np.array([GRID_H, GRID_W])  # map from [0,1] space to [0,19] space
 IMG_OUT_H, IMG_OUT_W = GRID_H * GRID_SIZE, GRID_W * GRID_SIZE 
 
 # prediction
-CHECKPOINT_DIR = 'model'
+CHECKPOINT_DIR = 'checkpoints'
 CHECKPOINT_PREFIX = os.path.join(CHECKPOINT_DIR, "ckpt")
 DIR_TEST = 'test_input'
 DIR_IMGS_OUT =  'imgs_out'
