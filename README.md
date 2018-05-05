@@ -35,6 +35,7 @@ This will currently work for the dummy data provided.
 The mAP achieved with this implementation of YOLO is **0.82**.
 
 Here are some visual results obtained by the network.
+
 ![Object detection on VOC](https://github.com/pmkalshetti/object_detection/blob/master/data/imgs_out/000022.jpg?raw=true)
 ![Hand detection](https://github.com/pmkalshetti/object_detection/blob/master/hand_detection/imgs_out/img_out.jpg?raw=true)
 
