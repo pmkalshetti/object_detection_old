@@ -1,8 +1,6 @@
 # YOLOv2 : Object Detection
 
-This repository is an implementation of YOLOv2.
-
-The original paper can be found out at [YOLO9000: Better, Faster, Stronger](https://arxiv.org/abs/1612.08242) and more details can be found out at the original author's webpage [Darknet](https://pjreddie.com/darknet/yolo/). YOLOv2 the current state of the art Object Detection Neural Network.
+This repository is an implementation of YOLOv2. YOLOv2 the current state of the art Object Detection Neural Network.
 
 There are two different versions of this Network:
 1. Trained on [Pascal VOC 2012](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/)
@@ -21,14 +19,14 @@ The weights for them can be downloaded from [Model checkpoint for Object Detecti
 ## Directory Structure
 |-- data<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- annotations<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- data_tfrecords<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- imgs_out<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- input<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- test<br>
 |-- docs<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- presetation.pdf<br>
 |-- hand_detection<br>
-|-- notebooks<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- constants.py<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- predict.py<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- utils.py<br>
 |-- src<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- constants.py<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- model.py<br>
@@ -51,13 +49,14 @@ python3 write_data_to_TFRecords.py
 python3 train.py
 python3 predict.py
 ```
+This will currently work for the dummy data provided.
 
 ## Results
 The mAP achieved with this implementation of YOLO is **0.82**.
 
-## Reference
- - https://github.com/allanzelener/YAD2K
+## References
  - [YOLO9000: Better, Faster, Stronger](https://arxiv.org/abs/1612.08242)
  - [Darknet](https://pjreddie.com/darknet/yolo/)
+ - https://github.com/allanzelener/YAD2K
  - [Pascal VOC 2012](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/)
  - [Multiview 3D Hand Pose Dataset](http://www.rovit.ua.es/dataset/mhpdataset/)
