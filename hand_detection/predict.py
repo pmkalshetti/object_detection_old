@@ -18,22 +18,45 @@ with tf.device(DEVICE):
 if not os.path.exists(DIR_IMGS_OUT):
     os.makedirs(DIR_IMGS_OUT)
     
-# check if webcam or video
-WEBCAM =  False
-if WEBCAM:
+MODE = 2  # webcam:0, video:1, imgs:2
+if MODE == 0:
     video = 0
-else:
+elif MODE == 1:
     video = VIDEO_IN
 
-font = cv2.FONT_HERSHEY_SIMPLEX
-with tf.device(DEVICE):
-    video_capture = cv2.VideoCapture(video)
-    idx_img = 0
-    while video_capture.isOpened():
-        # read image
-        ret, img = video_capture.read()
-        
-        if ret==True:
+if MODE == 0 or MODE == 1:
+  with tf.device(DEVICE):
+      video_capture = cv2.VideoCapture(video)
+      idx_img = 0
+      while video_capture.isOpened():
+          # read image
+          ret, img = video_capture.read()
+          
+          if ret==True:
+              img = process_img(img)
+              
+              # predict
+              output = model.predict(img)
+              
+              # write images
+              img_out = draw_output(img[0], output[0].numpy())
+              #cv2.imshow('prediction', img_out)
+              cv2.imwrite(DIR_IMGS_OUT+ '/{:04}'.format(idx_img) + '.jpg', img_out)
+              
+              if cv2.waitKey(1) & 0xFF == ord('\x1b'):
+                  break
+          else:
+              break
+           
+          idx_img += 1
+
+if MODE == 2:
+    filenames = sorted(os.listdir(DIR_TEST))
+    with tf.device(DEVICE):
+        for filename in filenames:
+            # read and process image
+            path = os.path.join(DIR_TEST, filename)
+            img = cv2.imread(path)
             img = process_img(img)
             
             # predict
@@ -41,14 +64,6 @@ with tf.device(DEVICE):
             
             # write images
             img_out = draw_output(img[0], output[0].numpy())
-            cv2.imshow('prediction', img_out)
-            #cv2.imwrite(DIR_IMGS_OUT+ '/'+str(idx_img) + '.jpg', img_out)
-            
-            if cv2.waitKey(1) & 0xFF == ord('\x1b'):
-                break
-        else:
-            break
-         
-        idx_img += 1
-        
-
+            path_out = os.path.join(DIR_IMGS_OUT, filename)
+            cv2.imwrite(path_out, cv2.cvtColor(img_out, cv2.COLOR_RGB2BGR))
+            print('Saved image')

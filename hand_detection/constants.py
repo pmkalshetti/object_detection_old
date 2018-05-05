@@ -28,6 +28,7 @@ IMG_OUT_H, IMG_OUT_W = GRID_H * GRID_SIZE, GRID_W * GRID_SIZE
 # prediction
 CHECKPOINT_DIR = 'model'
 CHECKPOINT_PREFIX = os.path.join(CHECKPOINT_DIR, "ckpt")
+DIR_TEST = 'test_input'
 DIR_IMGS_OUT =  'imgs_out'
 THRESHOLD_OUT_PROB = 0.5
 THRESHOLD_IOU_NMS = 0.5
