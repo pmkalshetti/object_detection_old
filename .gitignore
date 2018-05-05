@@ -5,16 +5,10 @@
 __pycache__/
 
 # data folder
-data*
-imgs_out
-
-# experimental code for understanding
-experimental_code/
-hand*
-
-# junk folder
-junk
+data_VOC2012
+results*
 
 # model files
 model*
 weights*
+hand_detection/model*
