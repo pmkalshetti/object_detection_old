@@ -27,6 +27,39 @@ The datasets used to train the network are listed below:
 | Multiview 3D Hand Pose Dataset | | 1         |
 
 
+## Network Architecture
+|    | Layer    | Filters | Size      | Input Layer | Input Dimension  | Output Dimension |
+| -- | -------- | ------- | --------- | ----------- | ---------------- | ---------------- |
+| 1  | Conv 2D  | 32      | 3 x 3 / 1 | Input       | 416 x 416 x 3    | 416 x 416 x 32   | 
+| 1  | Max Pool |         | 2 x 2 / 2 | 1 Conv 2D   | 416 x 416 x 32   | 208 x 208 x 32   |
+| 2  | Conv 2D  | 64      | 3 x 3 / 1 | 1 Max Pool  | 208 x 208 x 32   | 208 x 208 x 64   | 
+| 2  | Max Pool |         | 2 x 2 / 2 | 2 Conv 2D   | 208 x 208 x 64   | 104 x 104 x 64   |
+| 3  | Conv 2D  | 128     | 3 x 3 / 1 | 2 Max Pool  | 104 x 104 x 64   | 104 x 104 x 128  |
+| 4  | Conv 2D  | 64      | 3 x 3 / 1 | 3 Conv 2D   | 104 x 104 x 128  | 104 x 104 x 64   |
+| 5  | Conv 2D  | 128     | 3 x 3 / 1 | 4 Conv 2D   | 104 x 104 x 64   | 104 x 104 x 128  | 
+| 5  | Max Pool |         | 2 x 2 / 2 | 5 Conv 2D   | 104 x 104 x 128  | 52  x 52  x 128  |
+| 6  | Conv 2D  | 256     | 3 x 3 / 1 | 5 Max Pool  | 52  x 52  x 128  | 52  x 52  x 256  |
+| 7  | Conv 2D  | 128     | 3 x 3 / 1 | 6 Conv 2D   | 52  x 52  x 256  | 52  x 52  x 128  |
+| 8  | Conv 2D  | 256     | 3 x 3 / 1 | 7 Conv 2D   | 52  x 52  x 128  | 52  x 52  x 256  | 
+| 8  | Max Pool |         | 2 x 2 / 2 | 8 Conv 2D   | 52  x 52  x 256  | 26  x 26  x 256  |
+| 9  | Conv 2D  | 512     | 3 x 3 / 1 | 8 Max Pool  | 26  x 26  x 256  | 26  x 26  x 512  |
+| 10 | Conv 2D  | 256     | 3 x 3 / 1 | 9 Conv 2D   | 26  x 26  x 512  | 26  x 26  x 256  |
+| 11 | Conv 2D  | 512     | 3 x 3 / 1 | 10 Conv 2D  | 26  x 26  x 256  | 26  x 26  x 512  |
+| 12 | Conv 2D  | 256     | 3 x 3 / 1 | 11 Conv 2D  | 26  x 26  x 512  | 26  x 26  x 256  |
+| 13 | Conv 2D  | 512     | 3 x 3 / 1 | 12 Conv 2D  | 26  x 26  x 256  | 26  x 26  x 512  | 
+| 13 | Max Pool |         | 2 x 2 / 2 | 13 Conv 2D  | 26  x 26  x 512  | 13  x 13  x 512  |
+| 14 | Conv 2D  | 1024    | 3 x 3 / 1 | 13 Max Pool | 13  x 13  x 512  | 13  x 13  x 1024 |
+| 15 | Conv 2D  | 512     | 3 x 3 / 1 | 14 Conv 2D  | 13  x 13  x 1024 | 13  x 13  x 512  |
+| 16 | Conv 2D  | 1024    | 3 x 3 / 1 | 15 Conv 2D  | 13  x 13  x 512  | 13  x 13  x 1024 |
+| 17 | Conv 2D  | 512     | 3 x 3 / 1 | 16 Conv 2D  | 13  x 13  x 1024 | 13  x 13  x 512  |
+| 18 | Conv 2D  | 1024    | 3 x 3 / 1 | 17 Conv 2D  | 13  x 13  x 512  | 13  x 13  x 1024 |
+| 19 | Conv 2D  | 1024    | 3 x 3 / 1 | 18 Conv 2D  | 13  x 13  x 1024 | 13  x 13  x 1024 |
+| 20 | Conv 2D  | 1024    | 3 x 3 / 1 | 19 Conv 2D  | 13  x 13  x 1024 | 13  x 13  x 1024 |
+| 21 | Conv 2D  | 64      | 3 x 3 / 1 | 13 Conv 2D  | 26  x 26  x 512  | 26  x 26  x 64   |
+| 22 | Conv 2D  | 1024    | 3 x 3 / 1 | 20 + 21 | 13  x 13  x (1024 + 4 * 64 ) | 13  x 13  x 1024 |
+| 23 | Conv 2D  | 125 = 5 x (1+4+20) | 3 x 3 / 1 | 22 Conv 2D  | 13  x 13  x 1024 | 13  x 13  x 125 |
+
+
 ## First time setup
 ```bash
 git clone https://github.com/pmkalshetti/object_detection.git
