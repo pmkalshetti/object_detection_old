@@ -24,7 +24,7 @@ The datasets used to train the network are listed below:
 | Name of Dataset | No. of Images | No. of Classes |
 |-----------------|---------------|----------------|
 | Pascal VoC 2013 | 17125         | 20             |
-| Multiview 3D Hand Pose Dataset | | 1         |
+| Multiview 3D Hand Pose Dataset | Around 700K | 1         |
 
 
 ## Network Architecture
@@ -95,8 +95,8 @@ Here are some visual results obtained by the network.
 
 
 ## References
- - [YOLO9000: Better, Faster, Stronger](https://arxiv.org/abs/1612.08242)
- - [Darknet](https://pjreddie.com/darknet/yolo/)
- - https://github.com/allanzelener/YAD2K
- - [Pascal VOC 2012](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/)
- - [Multiview 3D Hand Pose Dataset](http://www.rovit.ua.es/dataset/mhpdataset/)
+ - Original Paper: [YOLO9000: Better, Faster, Stronger](https://arxiv.org/abs/1612.08242)
+ - Original paper's authors webpage for weights and other info: [Darknet](https://pjreddie.com/darknet/yolo/)
+ - A YOLOv2 implementation in Keras: https://github.com/allanzelener/YAD2K
+ - Dataset: [Pascal VOC 2012](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/)
+ - Dataset: [Multiview 3D Hand Pose Dataset](http://www.rovit.ua.es/dataset/mhpdataset/)
