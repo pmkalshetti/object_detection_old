@@ -56,7 +56,7 @@ The datasets used to train the network are listed below:
 | 19 | Conv 2D  | 1024    | 3 x 3 / 1 | 18 Conv 2D  | 13  x 13  x 1024 | 13  x 13  x 1024 |
 | 20 | Conv 2D  | 1024    | 3 x 3 / 1 | 19 Conv 2D  | 13  x 13  x 1024 | 13  x 13  x 1024 |
 | 21 | Conv 2D  | 64      | 3 x 3 / 1 | 13 Conv 2D  | 26  x 26  x 512  | 26  x 26  x 64   |
-| 22 | Conv 2D  | 1024    | 3 x 3 / 1 | 20 + 21 | 13  x 13  x (1024 + 4 * 64 ) | 13  x 13  x 1024 |
+| 22 | Conv 2D  | 1024    | 3 x 3 / 1 | 20 + 21 | 13  x 13  x (1024 + 4*64) | 13  x 13  x 1024 |
 | 23 | Conv 2D  | 125 = 5 x (1+4+20) | 3 x 3 / 1 | 22 Conv 2D  | 13  x 13  x 1024 | 13  x 13  x 125 |
 
 
