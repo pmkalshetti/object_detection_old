@@ -8,6 +8,8 @@ There are two different versions of this Network:
 
 The weights for these can be downloaded from [Model checkpoint for Object Detection VOC](http://bit.ly/2KC9pdH) and [Model checkpoint for Hand Detection](http://bit.ly/2wdYIL1).
 
+## Result
+![result_gif](animation.gif)
 
 ## Requirements
 1. [Python](https://www.python.org/) 3.5+
